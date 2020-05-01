@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/registerbg"
-    tools:context=".MainActivity" >
+    android:background="@drawable/loginbackground"
+    tools:context=".MainActivity">
 
     <Button
         android:id="@+id/confirmButton"
@@ -13,8 +13,8 @@
         android:layout_height="50dp"
         android:layout_marginEnd="120dp"
         android:layout_marginRight="120dp"
-        android:layout_marginBottom="260dp"
-        android:background="#9A44D8"
+        android:layout_marginBottom="220dp"
+        android:background="#F33B51"
         android:text="LOG IN"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
