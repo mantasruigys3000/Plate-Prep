@@ -23,7 +23,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
-        android:id="@+id/emailInput"
+        android:id="@+id/searchInput"
         android:layout_width="346dp"
         android:layout_height="48dp"
         android:layout_marginEnd="32dp"
@@ -123,7 +123,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/emailInput"
+        app:layout_constraintBottom_toTopOf="@+id/searchInput"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
