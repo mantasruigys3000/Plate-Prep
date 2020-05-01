@@ -27,11 +27,22 @@ class DB(val context: Context) {
 
     }
 
-    fun insertNewUser(c: (response : String) -> Unit){
-        var paramsh = HashMap<String,String>()
-        paramsh["name"] = "mantas"
-        val params = JSONObject()
-        params.put("name","mantas")
+    fun insertNewUser(
+        fname: String,
+        sname : String,
+        email: String,
+        password : String,
+        isPrem: Boolean,
+        c: (response : String) -> Unit
+    ){
+        var params = JSONObject()
+        params.put("fname",fname)
+        params.put("sname",sname)
+        params.put("email",email)
+        params.put("password",password)
+        params.put("isPrem",isPrem.toString())
+        //val params = JSONObject()
+        //params.put("name","mantas")
 
 
 
