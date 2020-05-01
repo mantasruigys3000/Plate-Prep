@@ -11,12 +11,15 @@
         android:id="@+id/recipeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
         android:text="Recipes"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="129dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchInput" />
 
     <Button
         android:id="@+id/confirmButton"
