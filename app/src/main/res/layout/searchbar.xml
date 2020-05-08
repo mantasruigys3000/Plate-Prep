@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/chooseingredbackground"
-    tools:context=".MainActivity">
+    tools:context=".SearchActivity">
 
     <TextView
         android:id="@+id/recipeText"
@@ -30,6 +30,36 @@
         android:layout_marginRight="16dp"
         android:background="#7EE854"
         android:text="@android:string/ok"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/removeButton"
+        android:layout_width="78dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginRight="104dp"
+        android:background="#E854AD"
+        android:text="@string/remove"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#7EE854"
+        android:text="@string/add"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -123,7 +153,6 @@
         android:background="#09A9FF"
         android:gravity="center_vertical"
         android:paddingLeft="8dp"
-        android:text="25 results"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
