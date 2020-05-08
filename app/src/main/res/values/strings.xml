@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DB-API</string>
+    <string name="add">ADD</string>
+    <string name="remove">REMOVE</string>
 </resources>
