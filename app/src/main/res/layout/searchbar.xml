@@ -29,7 +29,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:background="#7EE854"
-        android:text="@android:string/ok"
+        android:text="@string/search"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -126,6 +126,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
+            android:id="@+id/dynamicTextViews"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
