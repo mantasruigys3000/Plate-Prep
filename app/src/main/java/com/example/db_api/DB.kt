@@ -12,20 +12,6 @@ import org.json.JSONObject
 
 class DB(val context: Context) {
 
-    fun testPost() {
-        val q = Volley.newRequestQueue(context)
-        val url = "https://s5112101.bucomputing.uk/PlatePrepApi/index.php"
-        val postRequest = StringRequest(
-            Request.Method.POST, url,
-            Response.Listener<String> { response ->
-                Log.d("Worked", "response is: ${response.toString()}")
-            },
-            Response.ErrorListener {
-                Log.d("Failed", "Failed to connect")
-            })
-        q.add(postRequest)
-
-    }
 
     fun insertNewUser(
         fname: String,
@@ -59,7 +45,29 @@ class DB(val context: Context) {
             },
             Response.ErrorListener { error->
                 Log.d("Failed", error.toString())
+
             })
+        q.add(postRequest)
+    }
+
+     fun addMeal(mealId : Int, mealName : String, c: (response : String) -> Unit){
+        var params = JSONObject()
+        params.put("id",mealId)
+        params.put("name",mealName)
+
+
+        val q = Volley.newRequestQueue(context)
+        val url = "https://s5112101.bucomputing.uk/PlatePrepApi/newMeal.php"
+        var postRequest = JsonObjectRequest(
+                Request.Method.POST, url,
+                params,
+                Response.Listener { response ->
+                    Log.d("Worked", "response is: ${response.toString()}")
+                    c(response.toString())
+                },
+                Response.ErrorListener { error->
+                    Log.d("Failed", error.toString())
+                })
         q.add(postRequest)
     }
 
