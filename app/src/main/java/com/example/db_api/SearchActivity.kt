@@ -2,14 +2,19 @@ package com.example.db_api
 
 import android.os.Build
 import android.os.Bundle
+import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.example.yeet.Model
 import com.example.yeet.RecipeApiService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.searchbar.*
+import kotlinx.android.synthetic.main.searchbar.view.*
+
 
 class SearchActivity: AppCompatActivity() {
 
@@ -61,12 +66,31 @@ class SearchActivity: AppCompatActivity() {
                 { result ->
                     if (result.meals !== null) {
                         resultsText.text = "${result.meals.size} recipes found"
+                        displayResults(result)
                     } else {
                         resultsText.text = "No meals found"
                     }
                 },
                 { error -> Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show() }
             )
+    }
+
+    fun displayResults(result: Model.Result) {
+        var t = mutableListOf<TextView>()
+        val dim = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.WRAP_CONTENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
+        )
+        val dtv = dynamicTextViews
+        //var i: Int = 0
+        for (i in 0..result.meals.size) {
+            if(result.meals[i].strMeal != null){
+                t.add(i, TextView(this) )
+                t[i].text = result.meals[i].strMeal
+                dtv.addView(t[i])
+            }
+
+        }
     }
 
     override fun onPause() {
