@@ -1,5 +1,7 @@
 package com.example.db_api
 
+import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -16,7 +18,8 @@ import kotlinx.android.synthetic.main.searchbar.*
 import kotlinx.android.synthetic.main.searchbar.view.*
 
 
-class SearchActivity: AppCompatActivity() {
+class SearchActivity : AppCompatActivity() {
+
 
     //Api Stuff
 
@@ -30,7 +33,8 @@ class SearchActivity: AppCompatActivity() {
 
     //Autocomplete stuff
 
-    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.searchbar)
@@ -57,6 +61,7 @@ class SearchActivity: AppCompatActivity() {
 
     }
 
+    @RequiresApi(Build.VERSION_CODES.P)
     private fun beginFilter(searchString: String) {
         //instance of interface being called
         disposable = RecipeApiCall.recipeFilter(searchString)
@@ -75,23 +80,46 @@ class SearchActivity: AppCompatActivity() {
             )
     }
 
+
+    @SuppressLint("ResourceAsColor")
+    @RequiresApi(Build.VERSION_CODES.P)
     fun displayResults(result: Model.Result) {
         var t = mutableListOf<TextView>()
-        val dim = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.WRAP_CONTENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
-        )
+//        val dim = LinearLayout.LayoutParams(
+//            LinearLayout.LayoutParams.WRAP_CONTENT,
+//            LinearLayout.LayoutParams.WRAP_CONTENT
+//        )
         val dtv = dynamicTextViews
+        val layoutDefault = recipeObject.layoutParams
+        val fontVariation = recipeObject.fontVariationSettings
+        val fontSize = recipeObject.textMetricsParams
+        val padding = recipeObject.paddingLeft
+        val gravity = recipeObject.gravity
         //var i: Int = 0
         for (i in 0..result.meals.size) {
-            if(result.meals[i].strMeal != null){
-                t.add(i, TextView(this) )
+            if (result.meals[i].strMeal != null) {
+                t.add(i, TextView(this))
                 t[i].text = result.meals[i].strMeal
+                t[i].setBackgroundResource(R.color.orange)
+                t[i].layoutParams = layoutDefault
+                t[i].textMetricsParams = fontSize
+                t[i].gravity = gravity
+                t[i].setPadding(padding, 0, 0, 0)
+                t[i].alpha = (1F)
+                t[i].fontVariationSettings = fontVariation
+                t[i].setOnClickListener {
+                    val intent = Intent(this, RecipeActivity::class.java).apply {
+                        putExtra("idMeal", result.meals[i].idMeal)
+                    }
+                    startActivity(intent)
+                }
                 dtv.addView(t[i])
             }
 
         }
     }
+
+
 
     override fun onPause() {
         super.onPause()

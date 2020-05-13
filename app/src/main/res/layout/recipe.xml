@@ -65,10 +65,10 @@
         android:layout_marginLeft="16dp"
         android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recipeText5" />
+        app:layout_constraintTop_toBottomOf="@+id/recipeName" />
 
     <TextView
-        android:id="@+id/recipeText5"
+        android:id="@+id/recipeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
