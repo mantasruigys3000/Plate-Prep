@@ -3,6 +3,7 @@ package com.example.db_api
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.yeet.Model
 import com.example.yeet.RecipeApiService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -23,6 +24,10 @@ class RecipeActivity: AppCompatActivity() {
         setContentView(R.layout.recipe)
         displayResults()
 
+        backButton.setOnClickListener(){
+            onBackPressed()
+        }
+
 
 
     }
@@ -35,7 +40,7 @@ class RecipeActivity: AppCompatActivity() {
             .subscribe(
                 { result ->
                     if (result.meals != null) {
-                        recipeName.text = result.meals[0].strMeal.toString()
+                        updateView(result.meals[0])
                         //(result)
                     } else {
                         recipeName.text = "Error"
@@ -54,5 +59,14 @@ class RecipeActivity: AppCompatActivity() {
             Toast.makeText(this, "hi", Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+    private fun updateView(meal: Model.Meals) {
+        recipeName.text = meal.strMeal.toString()
+        descriptionView.text = meal.strArea
+        instructionView.text = meal.strInstructions
+        if(meal.strYoutube != null) {
+
+        }
     }
 }

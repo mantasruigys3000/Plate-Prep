@@ -15,7 +15,7 @@ interface RecipeApiService {
     @GET("list.php")
     fun ingredientGet(@Query("i")searchString: String): Observable<IngModel.Result>
 
-    //https://www.themealdb.com/api/json/v1/1/lookup.php?i=
+
     @GET("lookup.php")
     fun mealLookup(@Query("i") searchString: String): Observable<Model.Result>
 
