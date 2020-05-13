@@ -15,6 +15,10 @@ interface RecipeApiService {
     @GET("list.php")
     fun ingredientGet(@Query("i")searchString: String): Observable<IngModel.Result>
 
+
+    @GET("lookup.php")
+    fun mealLookup(@Query("i") searchString: String): Observable<Model.Result>
+
     companion object {
         fun create(): RecipeApiService {
 

@@ -3,4 +3,5 @@
     <string name="add">ADD</string>
     <string name="remove">REMOVE</string>
     <string name="search">SEARCH</string>
+    <string name="back">Back</string>
 </resources>
