@@ -93,7 +93,7 @@ class RecipeActivity: AppCompatActivity() {
 
         recipeName.text = meal.strMeal.toString()
         descriptionView.text = emptyString
-        instructionView.text = meal.strInstructions
+        stepView.text = meal.strInstructions
         if(meal.strYoutube != null) {
 
         }
