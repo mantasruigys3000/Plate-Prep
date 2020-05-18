@@ -19,6 +19,7 @@
         android:text="TAGS"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="20sp"
+
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button9" />
@@ -37,13 +38,18 @@
         android:id="@+id/recipeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="48dp"
+        android:autoSizeMaxTextSize="60sp"
+        android:autoSizeMinTextSize="12sp"
+        android:autoSizeTextType="uniform"
         android:gravity="clip_horizontal|center_horizontal"
         android:text="Recipe"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="#FFFFFF"
-        android:textSize="64dp"
         android:textStyle="bold"
+        app:autoSizeMaxTextSize="64dp"
+        app:autoSizeMinTextSize="12dp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -64,8 +70,8 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="377dp"
-        android:layout_height="504dp"
+        android:layout_width="375dp"
+        android:layout_height="543dp"
         android:layout_marginTop="8dp"
         android:clipToPadding="false"
         android:fillViewport="false"
@@ -117,12 +123,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="50dp"
                 android:background="#ACB7E3"
                 android:gravity="center_horizontal|center_vertical"
                 android:padding="6dp"
                 android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla, ex in ornare semper, metus nisi ultricies quam, rutrum pellentesque erat neque gravida diam. Nam vitae nulla molestie, mattis turpis quis, viverra tortor. Pellentesque porta nisl at cursus imperdiet. Integer vitae tortor mi. Fusce rutrum faucibus imperdiet. Donec in iaculis tellus. Vestibulum ultrices urna libero, nec consequat ex ornare eget. Nulla aliquam, purus eu consequat volutpat, felis ex porta tortor, non egestas dolor elit a mauris. Ut sit amet eleifend lacus. Nunc eget neque vitae eros tempor venenatis vel id orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla, ex in ornare semper, metus nisi ultricies quam, rutrum pellentesque erat neque gravida diam. Nam vitae nulla molestie, mattis turpis quis, viverra tortor. Pellentesque porta nisl at cursus imperdiet. Integer vitae tortor mi. Fusce rutrum faucibus imperdiet. Donec in iaculis tellus. Vestibulum ultrices urna libero, nec consequat ex ornare eget. Nulla aliquam, purus eu consequat volutpat, felis ex porta tortor, non egestas dolor elit a mauris. Ut sit amet eleifend lacus. Nunc eget neque vitae eros tempor venenatis vel id orci."
                 android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="83dp"
+                android:layout_marginBottom="64dp"
+                android:text="TextView"
+                android:textColor="#00FFFFFF" />
 
         </LinearLayout>
     </ScrollView>
