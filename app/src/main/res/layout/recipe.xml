@@ -7,50 +7,16 @@
     android:background="@drawable/chooseingredbackground">
 
     <Button
-        android:id="@+id/button12"
-        android:layout_width="377dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:background="#C68137"
-        android:gravity="center_vertical"
-        android:paddingLeft="8dp"
-        android:text="Step-by-Step                                             V"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionView" />
-
-    <Button
-        android:id="@+id/button13"
-        android:layout_width="377dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="16dp"
-        android:background="#BC2929"
-        android:gravity="center_vertical"
-        android:paddingLeft="8dp"
-        android:text="Video                                                           V"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/instructionView" />
-
-    <Button
         android:id="@+id/button10"
-        android:layout_width="377dp"
-        android:layout_height="39dp"
+        android:layout_width="70dp"
+        android:layout_height="29dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:background="#51AA33"
         android:gravity="center_vertical"
         android:paddingLeft="8dp"
-        android:text="Description                                                 V"
+        android:text="TAGS"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -71,14 +37,14 @@
         android:id="@+id/recipeName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="64dp"
         android:text="Recipe"
         android:textAppearance="@style/TextAppearance.AppCompat.Display3"
         android:textColor="#FFFFFF"
         android:textSize="64dp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -86,51 +52,88 @@
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:text="@string/back"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/descriptionView"
-        android:layout_width="375dp"
-        android:layout_height="136dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
+        android:layout_width="309dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="9dp"
         android:background="#589E30"
         android:padding="4dp"
         android:text="TextView"
         android:textAllCaps="false"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button10" />
+        app:layout_constraintStart_toEndOf="@+id/button10"
+        app:layout_constraintTop_toBottomOf="@+id/button9" />
 
-    <TextView
-        android:id="@+id/instructionView"
-        android:layout_width="375dp"
-        android:layout_height="136dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:background="#B66E39"
-        android:padding="4dp"
-        android:text="TextView"
-        android:textAllCaps="false"
+    <ScrollView
+        android:layout_width="377dp"
+        android:layout_height="504dp"
+        android:layout_marginTop="8dp"
+        android:clipToPadding="false"
+        android:fillViewport="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button12" />
+        app:layout_constraintTop_toBottomOf="@+id/descriptionView">
 
-    <VideoView
-        android:id="@+id/videoView"
-        android:layout_width="375dp"
-        android:layout_height="131dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginLeft="17dp"
-        android:background="#7C0F0F"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button13" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="379dp"
+                android:layout_height="match_parent"
+                android:background="#EFEEEE"
+                android:text="INGREDIENTS"
+                android:textColor="#050000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="#E6E5E5"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="2dp"
+                android:text="TextView"
+                android:textColor="#000000" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:background="#EFEEEE"
+                android:text="STEP-BY-STEP"
+                android:textColor="#050000"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="#E6E5E5"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="2dp"
+                android:text="TextView"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
