@@ -61,8 +61,14 @@ class RecipeActivity: AppCompatActivity() {
     private fun updateView(meal: Model.Meals) {
 
         val ingredientList = mutableListOf<String?>()
+        val tagList = mutableListOf<String?>()
 
         var emptyString: String = ""
+        var emptyTagString = ""
+        tagList.add(meal.strArea)
+        tagList.add(meal.strCategory)
+        tagList.add(meal.strTags)
+
         ingredientList.add(meal.strIngredient1)
         ingredientList.add(meal.strIngredient2)
         ingredientList.add(meal.strIngredient3)
@@ -90,10 +96,18 @@ class RecipeActivity: AppCompatActivity() {
 
             }
         }
+        for(item in tagList){
+            if(!item.isNullOrEmpty()){
+                emptyTagString += " $item,"
+            }
+        }
 
         recipeName.text = meal.strMeal.toString()
-        descriptionView.text = emptyString
+
+        ingredientView.text = emptyString
         stepView.text = meal.strInstructions
+        descriptionView.text = emptyTagString
+
         if(meal.strYoutube != null) {
 
         }
