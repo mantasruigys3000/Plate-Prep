@@ -27,9 +27,6 @@ class RecipeActivity: AppCompatActivity() {
         backButton.setOnClickListener(){
             onBackPressed()
         }
-
-
-
     }
 
     private fun beginLookup(searchString: String) {
@@ -62,8 +59,40 @@ class RecipeActivity: AppCompatActivity() {
     }
 
     private fun updateView(meal: Model.Meals) {
+
+        val ingredientList = mutableListOf<String?>()
+
+        var emptyString: String = ""
+        ingredientList.add(meal.strIngredient1)
+        ingredientList.add(meal.strIngredient2)
+        ingredientList.add(meal.strIngredient3)
+        ingredientList.add(meal.strIngredient4)
+        ingredientList.add(meal.strIngredient5)
+        ingredientList.add(meal.strIngredient6)
+        ingredientList.add(meal.strIngredient7)
+        ingredientList.add(meal.strIngredient8)
+        ingredientList.add(meal.strIngredient9)
+        ingredientList.add(meal.strIngredient10)
+        ingredientList.add(meal.strIngredient11)
+        ingredientList.add(meal.strIngredient12)
+        ingredientList.add(meal.strIngredient13)
+        ingredientList.add(meal.strIngredient14)
+        ingredientList.add(meal.strIngredient15)
+        ingredientList.add(meal.strIngredient16)
+        ingredientList.add(meal.strIngredient17)
+        ingredientList.add(meal.strIngredient18)
+        ingredientList.add(meal.strIngredient19)
+        ingredientList.add(meal.strIngredient20)
+
+        for (item in ingredientList){
+            if (!item.isNullOrEmpty()){
+                emptyString += " $item ,"
+
+            }
+        }
+
         recipeName.text = meal.strMeal.toString()
-        descriptionView.text = meal.strArea
+        descriptionView.text = emptyString
         instructionView.text = meal.strInstructions
         if(meal.strYoutube != null) {
 
