@@ -47,14 +47,14 @@ class SearchActivity : AppCompatActivity() {
         addButton.setOnClickListener {
             if (searchInput.text.toString().isNotEmpty()) {
                 ingredientList.add(searchInput.text.toString())
-                recipeObject.text = ingredientList.toString()
+                recipeObject2.text = ingredientList.toString()
                 searchInput.text.clear()
             }
         }
         removeButton.setOnClickListener {
             if (ingredientList.isNotEmpty())
                 ingredientList.removeAt(ingredientList.size - 1)
-            recipeObject.text = ingredientList.toString()
+            recipeObject2.text = ingredientList.toString()
         }
 
     }
