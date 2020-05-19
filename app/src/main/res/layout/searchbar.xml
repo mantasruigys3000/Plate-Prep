@@ -118,16 +118,30 @@
 
     <TextView
         android:id="@+id/recipeObject"
-        android:layout_width="374dp"
-        android:layout_height="21dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="185dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="12dp"
+        android:background="#09A9FF"
+        android:gravity="center_horizontal|center_vertical"
+        android:paddingLeft="8dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recipeText" />
+
+    <TextView
+        android:id="@+id/recipeObject3"
+        android:layout_width="185dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
         android:background="#09A9FF"
         android:gravity="center_horizontal|center_vertical"
         android:paddingLeft="8dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recipeText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

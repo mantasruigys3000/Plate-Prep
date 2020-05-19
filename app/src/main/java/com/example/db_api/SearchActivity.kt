@@ -39,6 +39,7 @@ class SearchActivity : AppCompatActivity() {
 
         confirmButton.setOnClickListener {
             if (ingredientList.isNotEmpty()) {
+                dynamicTextViews.removeAllViews()
                 beginFilter(ingredientList.joinToString(separator = ","))
                 // [chicken, dog,cat]  = "chicken,dog,cat"
             }
@@ -47,6 +48,7 @@ class SearchActivity : AppCompatActivity() {
         addButton.setOnClickListener {
             if (searchInput.text.toString().isNotEmpty()) {
                 ingredientList.add(searchInput.text.toString())
+                recipeObject3.text = ingredientList.toString()
                 recipeObject2.text = ingredientList.toString()
                 searchInput.text.clear()
             }
@@ -54,6 +56,7 @@ class SearchActivity : AppCompatActivity() {
         removeButton.setOnClickListener {
             if (ingredientList.isNotEmpty())
                 ingredientList.removeAt(ingredientList.size - 1)
+            recipeObject3.text = ingredientList.toString()
             recipeObject2.text = ingredientList.toString()
         }
 
