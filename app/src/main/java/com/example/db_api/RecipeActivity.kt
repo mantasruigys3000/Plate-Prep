@@ -61,6 +61,7 @@ class RecipeActivity : AppCompatActivity() {
     private fun updateView(meal: Model.Meals) {
 
         val ingredientList = mutableListOf<String?>()
+        val measureList = mutableListOf<String?>()
         val tagList = mutableListOf<String?>()
 
         var emptyString: String = ""
@@ -71,32 +72,53 @@ class RecipeActivity : AppCompatActivity() {
         tagList.add(meal.strTags)
 
 
+        ingredientList.add(meal.strIngredient1)
+        ingredientList.add(meal.strIngredient2)
+        ingredientList.add(meal.strIngredient3)
+        ingredientList.add(meal.strIngredient4)
+        ingredientList.add(meal.strIngredient5)
+        ingredientList.add(meal.strIngredient6)
+        ingredientList.add(meal.strIngredient7)
+        ingredientList.add(meal.strIngredient8)
+        ingredientList.add(meal.strIngredient9)
+        ingredientList.add(meal.strIngredient10)
+        ingredientList.add(meal.strIngredient11)
+        ingredientList.add(meal.strIngredient12)
+        ingredientList.add(meal.strIngredient13)
+        ingredientList.add(meal.strIngredient14)
+        ingredientList.add(meal.strIngredient15)
+        ingredientList.add(meal.strIngredient16)
+        ingredientList.add(meal.strIngredient17)
+        ingredientList.add(meal.strIngredient18)
+        ingredientList.add(meal.strIngredient19)
+        ingredientList.add(meal.strIngredient20)
 
-        ingredientList.add(meal.strIngredient1 +meal.strMeasure1)
-        ingredientList.add(meal.strIngredient2 +meal.strMeasure2)
-        ingredientList.add(meal.strIngredient3 +meal.strMeasure3)
-        ingredientList.add(meal.strIngredient4 +meal.strMeasure4)
-        ingredientList.add(meal.strIngredient5 + meal.strMeasure5)
-        ingredientList.add(meal.strIngredient6 +meal.strMeasure6)
-        ingredientList.add(meal.strIngredient7 +meal.strMeasure7)
-        ingredientList.add(meal.strIngredient8 +meal.strMeasure8)
-        ingredientList.add(meal.strIngredient9 +meal.strMeasure9)
-        ingredientList.add(meal.strIngredient10 +meal.strMeasure10)
-        ingredientList.add(meal.strIngredient11 +meal.strMeasure11)
-        ingredientList.add(meal.strIngredient12 +meal.strMeasure12)
-        ingredientList.add(meal.strIngredient13 + meal.strMeasure13)
-        ingredientList.add(meal.strIngredient14 +meal.strMeasure14)
-        ingredientList.add(meal.strIngredient15 +meal.strMeasure15)
-        ingredientList.add(meal.strIngredient16 +meal.strMeasure16)
-        ingredientList.add(meal.strIngredient17 +meal.strMeasure17)
-        ingredientList.add(meal.strIngredient18 +meal.strMeasure18)
-        ingredientList.add(meal.strIngredient19 +meal.strMeasure19)
-        ingredientList.add(meal.strIngredient20 +meal.strMeasure20)
+        measureList.add(meal.strMeasure1)
+        measureList.add(meal.strMeasure2)
+        measureList.add(meal.strMeasure3)
+        measureList.add(meal.strMeasure4)
+        measureList.add(meal.strMeasure5)
+        measureList.add(meal.strMeasure6)
+        measureList.add(meal.strMeasure7)
+        measureList.add(meal.strMeasure8)
+        measureList.add(meal.strMeasure9)
+        measureList.add(meal.strMeasure10)
+        measureList.add(meal.strMeasure11)
+        measureList.add(meal.strMeasure12)
+        measureList.add(meal.strMeasure13)
+        measureList.add(meal.strMeasure14)
+        measureList.add(meal.strMeasure15)
+        measureList.add(meal.strMeasure16)
+        measureList.add(meal.strMeasure17)
+        measureList.add(meal.strMeasure18)
+        measureList.add(meal.strMeasure19)
+        measureList.add(meal.strMeasure20)
 
-
-        for (item in ingredientList) {
-            if (!item.isNullOrEmpty()) {
-                emptyString += "$item \n"
+        for(i in 0..19){
+            var ding = ingredientList[i]
+            var dong = measureList[i]
+            if(!ding.isNullOrEmpty()){
+                emptyString += "$ding - $dong \n"
             }
         }
 
