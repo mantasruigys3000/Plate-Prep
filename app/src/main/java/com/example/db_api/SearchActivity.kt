@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -15,7 +14,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.searchbar.*
-import kotlinx.android.synthetic.main.searchbar.view.*
 
 
 class SearchActivity : AppCompatActivity() {
@@ -41,6 +39,7 @@ class SearchActivity : AppCompatActivity() {
 
         confirmButton.setOnClickListener {
             if (ingredientList.isNotEmpty()) {
+                dynamicTextViews.removeAllViews()
                 beginFilter(ingredientList.joinToString(separator = ","))
                 // [chicken, dog,cat]  = "chicken,dog,cat"
             }
@@ -49,14 +48,16 @@ class SearchActivity : AppCompatActivity() {
         addButton.setOnClickListener {
             if (searchInput.text.toString().isNotEmpty()) {
                 ingredientList.add(searchInput.text.toString())
-                recipeObject.text = ingredientList.toString()
+                recipeObject3.text = ingredientList.toString()
+                recipeObject2.text = ingredientList.toString()
                 searchInput.text.clear()
             }
         }
         removeButton.setOnClickListener {
             if (ingredientList.isNotEmpty())
                 ingredientList.removeAt(ingredientList.size - 1)
-            recipeObject.text = ingredientList.toString()
+            recipeObject3.text = ingredientList.toString()
+            recipeObject2.text = ingredientList.toString()
         }
 
     }
@@ -70,10 +71,10 @@ class SearchActivity : AppCompatActivity() {
             .subscribe(
                 { result ->
                     if (result.meals !== null) {
-                        resultsText.text = "${result.meals.size} recipes found"
+                        recipeObject.text = "${result.meals.size} recipes found"
                         displayResults(result)
                     } else {
-                        resultsText.text = "No meals found"
+                        recipeObject.text = "No meals found"
                     }
                 },
                 { error -> Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show() }
@@ -90,11 +91,11 @@ class SearchActivity : AppCompatActivity() {
 //            LinearLayout.LayoutParams.WRAP_CONTENT
 //        )
         val dtv = dynamicTextViews
-        val layoutDefault = recipeObject.layoutParams
-        val fontVariation = recipeObject.fontVariationSettings
-        val fontSize = recipeObject.textMetricsParams
-        val padding = recipeObject.paddingLeft
-        val gravity = recipeObject.gravity
+        val layoutDefault = recipeObject2.layoutParams
+        val fontVariation = recipeObject2.fontVariationSettings
+        val fontSize = recipeObject2.textMetricsParams
+        val padding = recipeObject2.paddingLeft
+        val gravity = recipeObject2.gravity
         //var i: Int = 0
         for (i in 0..result.meals.size) {
             if (result.meals[i].strMeal != null) {

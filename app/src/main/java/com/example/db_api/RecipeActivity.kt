@@ -11,7 +11,7 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.recipe.*
 
 
-class RecipeActivity: AppCompatActivity() {
+class RecipeActivity : AppCompatActivity() {
 
     private var disposable: Disposable? = null
 
@@ -24,7 +24,7 @@ class RecipeActivity: AppCompatActivity() {
         setContentView(R.layout.recipe)
         displayResults()
 
-        backButton.setOnClickListener(){
+        backButton.setOnClickListener() {
             onBackPressed()
         }
     }
@@ -50,7 +50,7 @@ class RecipeActivity: AppCompatActivity() {
     private fun displayResults() {
         val name = intent.getIntExtra("idMeal", 1)
         println(name)
-        if(name != null) {
+        if (name != null) {
             beginLookup(name.toString())
         } else {
             Toast.makeText(this, "hi", Toast.LENGTH_SHORT).show()
@@ -61,40 +61,58 @@ class RecipeActivity: AppCompatActivity() {
     private fun updateView(meal: Model.Meals) {
 
         val ingredientList = mutableListOf<String?>()
+        val tagList = mutableListOf<String?>()
 
         var emptyString: String = ""
-        ingredientList.add(meal.strIngredient1)
-        ingredientList.add(meal.strIngredient2)
-        ingredientList.add(meal.strIngredient3)
-        ingredientList.add(meal.strIngredient4)
-        ingredientList.add(meal.strIngredient5)
-        ingredientList.add(meal.strIngredient6)
-        ingredientList.add(meal.strIngredient7)
-        ingredientList.add(meal.strIngredient8)
-        ingredientList.add(meal.strIngredient9)
-        ingredientList.add(meal.strIngredient10)
-        ingredientList.add(meal.strIngredient11)
-        ingredientList.add(meal.strIngredient12)
-        ingredientList.add(meal.strIngredient13)
-        ingredientList.add(meal.strIngredient14)
-        ingredientList.add(meal.strIngredient15)
-        ingredientList.add(meal.strIngredient16)
-        ingredientList.add(meal.strIngredient17)
-        ingredientList.add(meal.strIngredient18)
-        ingredientList.add(meal.strIngredient19)
-        ingredientList.add(meal.strIngredient20)
+        var emptyTagString = ""
 
-        for (item in ingredientList){
-            if (!item.isNullOrEmpty()){
-                emptyString += " $item ,"
+        tagList.add(meal.strArea)
+        tagList.add(meal.strCategory)
+        tagList.add(meal.strTags)
 
+
+
+        ingredientList.add(meal.strIngredient1 +meal.strMeasure1)
+        ingredientList.add(meal.strIngredient2 +meal.strMeasure2)
+        ingredientList.add(meal.strIngredient3 +meal.strMeasure3)
+        ingredientList.add(meal.strIngredient4 +meal.strMeasure4)
+        ingredientList.add(meal.strIngredient5 + meal.strMeasure5)
+        ingredientList.add(meal.strIngredient6 +meal.strMeasure6)
+        ingredientList.add(meal.strIngredient7 +meal.strMeasure7)
+        ingredientList.add(meal.strIngredient8 +meal.strMeasure8)
+        ingredientList.add(meal.strIngredient9 +meal.strMeasure9)
+        ingredientList.add(meal.strIngredient10 +meal.strMeasure10)
+        ingredientList.add(meal.strIngredient11 +meal.strMeasure11)
+        ingredientList.add(meal.strIngredient12 +meal.strMeasure12)
+        ingredientList.add(meal.strIngredient13 + meal.strMeasure13)
+        ingredientList.add(meal.strIngredient14 +meal.strMeasure14)
+        ingredientList.add(meal.strIngredient15 +meal.strMeasure15)
+        ingredientList.add(meal.strIngredient16 +meal.strMeasure16)
+        ingredientList.add(meal.strIngredient17 +meal.strMeasure17)
+        ingredientList.add(meal.strIngredient18 +meal.strMeasure18)
+        ingredientList.add(meal.strIngredient19 +meal.strMeasure19)
+        ingredientList.add(meal.strIngredient20 +meal.strMeasure20)
+
+
+        for (item in ingredientList) {
+            if (!item.isNullOrEmpty()) {
+                emptyString += "$item \n"
+            }
+        }
+
+        for (item in tagList) {
+            if (!item.isNullOrEmpty()) {
+                emptyTagString += " $item ,"
             }
         }
 
         recipeName.text = meal.strMeal.toString()
-        descriptionView.text = emptyString
-        instructionView.text = meal.strInstructions
-        if(meal.strYoutube != null) {
+
+        ingredientView.text = emptyString
+        stepView.text = meal.strInstructions
+        descriptionView.text = emptyTagString
+
+        if (meal.strYoutube != null) {
 
         }
     }
