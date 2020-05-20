@@ -68,10 +68,12 @@ class DB(val context: Context) {
         q.add(postRequest)
     }
 
-    fun login(email:String,password:String, c: (response: String) -> Unit){
+    fun login(email:String,password:String, c: (response: JSONObject) -> Unit){
         var params = JSONObject()
         params.put("email",email)
         params.put("password",password)
+
+        var responseObj : JSONObject
 
 
         val q = Volley.newRequestQueue(context)
@@ -81,6 +83,50 @@ class DB(val context: Context) {
                 params,
                 Response.Listener { response ->
                     Log.d("Worked", "response is: ${response.toString()}")
+                    responseObj = JSONObject(response.toString())
+                    c(responseObj)
+                },
+                Response.ErrorListener { error->
+                    Log.d("Failed", error.toString())
+                })
+        q.add(postRequest)
+    }
+
+     fun addFav(user : Account,mealId: Int,c : (response : String) -> Unit ){
+        var params = JSONObject()
+        params.put("account_id",user.id.toString())
+        params.put("meal_id",mealId.toString())
+
+
+        val q = Volley.newRequestQueue(context)
+        val url = "https://s5112101.bucomputing.uk/PlatePrepApi/addFav.php"
+        var postRequest = JsonObjectRequest(
+                Request.Method.POST, url,
+                params,
+                Response.Listener { response ->
+                    Log.d("Worked", "response is: ${response.toString()}")
+
+                    c(response.toString())
+                },
+                Response.ErrorListener { error->
+                    Log.d("Failed", error.toString())
+                })
+        q.add(postRequest)
+    }
+
+    fun getFavesForUser(user: Account,c: (response: String) -> Unit){
+        var params = JSONObject()
+        params.put("account_id",user.id.toString())
+
+
+        val q = Volley.newRequestQueue(context)
+        val url = "https://s5112101.bucomputing.uk/PlatePrepApi/addFav.php"
+        var postRequest = JsonObjectRequest(
+                Request.Method.POST, url,
+                params,
+                Response.Listener { response ->
+                    Log.d("Worked", "response is: ${response.toString()}")
+
                     c(response.toString())
                 },
                 Response.ErrorListener { error->

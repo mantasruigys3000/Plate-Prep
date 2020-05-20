@@ -7,9 +7,10 @@ class Account (
         val id : Int ,
         val Name: String){
 
+    var favList = mutableListOf<Int>()
 
-    fun addFav (mealId: Int){
+
+    fun updateFavs(){
         val db = DB(context)
-
     }
 }
