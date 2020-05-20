@@ -82,11 +82,12 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="375dp"
-        android:layout_height="491dp"
+        android:layout_width="373dp"
+        android:layout_height="465dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="36dp"
         android:clickable="true"
+        android:paddingBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
