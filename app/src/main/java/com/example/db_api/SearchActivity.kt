@@ -36,6 +36,9 @@ class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.searchbar)
+        val name = intent.getStringExtra("Name")
+        val toast = Toast.makeText(this, "Hello $name", Toast.LENGTH_LONG)
+        toast.show()
 
         confirmButton.setOnClickListener {
             if (ingredientList.isNotEmpty()) {
@@ -46,20 +49,20 @@ class SearchActivity : AppCompatActivity() {
         }
 
         addButton.setOnClickListener {
-            if (searchInput.text.toString().isNotEmpty()) {
-                ingredientList.add(searchInput.text.toString())
-                recipeObject3.text = ingredientList.toString()
-                recipeObject2.text = ingredientList.toString()
-                searchInput.text.clear()
+            if (emailInput.text.toString().isNotEmpty()) {
+                ingredientList.add(emailInput.text.toString())
+                recipeObject3.text = ingredientList.toString().replace("[", "").replace("]", "")
+                recipeObject2.text = ingredientList.toString().replace("[", "").replace("]", "")
+                emailInput.text.clear()
             }
         }
         removeButton.setOnClickListener {
             if (ingredientList.isNotEmpty())
                 ingredientList.removeAt(ingredientList.size - 1)
-            recipeObject3.text = ingredientList.toString()
-            recipeObject2.text = ingredientList.toString()
+            recipeObject3.text = ingredientList.toString().replace("[", "").replace("]", "")
+            recipeObject2.text = ingredientList.toString().replace("[", "").replace("]", "")
         }
-
+10
     }
 
     @RequiresApi(Build.VERSION_CODES.P)

@@ -114,6 +114,8 @@ class RecipeActivity : AppCompatActivity() {
         measureList.add(meal.strMeasure19)
         measureList.add(meal.strMeasure20)
 
+
+
         for(i in 0..19){
             var ding = ingredientList[i]
             var dong = measureList[i]

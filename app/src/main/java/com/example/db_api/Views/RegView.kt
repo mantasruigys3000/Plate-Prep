@@ -7,9 +7,7 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.core.view.get
 import com.example.db_api.DB
-import com.example.db_api.MainActivity
 import com.example.db_api.R
 
 class RegView : LinearLayout {
@@ -33,7 +31,7 @@ class RegView : LinearLayout {
         val submitButton = findViewById<Button>(R.id.confirmButton)
 
         submitButton.setOnClickListener {
-            val email = findViewById<TextView>(R.id.searchInput).text.toString()
+            val email = findViewById<TextView>(R.id.emailInput).text.toString()
             val password = findViewById<TextView>(R.id.passwordInput).text.toString()
             val retypepassword = findViewById<TextView>(R.id.confirmPasswordInput).text.toString()
             val fname = findViewById<TextView>(R.id.firstnameInput).text.toString()
