@@ -82,11 +82,12 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="375dp"
-        android:layout_height="491dp"
+        android:layout_width="373dp"
+        android:layout_height="465dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="36dp"
         android:clickable="true"
+        android:paddingBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
@@ -143,5 +144,17 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recipeText" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="390dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:background="#8E8E8E"
+        android:text="AD-BANNER"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
